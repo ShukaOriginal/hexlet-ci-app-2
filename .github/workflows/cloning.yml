@@ -15,13 +15,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps: 
-
+        - uses: actions/checkout@v4
         - uses: actions/setup-node@v6
           with:
             node-version: 24
-        - run: make start
+        - run: make setup
         - run: make install
         - run: make test
+
   helloFromHexlet:
     runs-on: ubuntu-latest
     steps:
