@@ -1,4 +1,4 @@
-name: zapusk
+name: cloning
 
 on: push
 jobs:
