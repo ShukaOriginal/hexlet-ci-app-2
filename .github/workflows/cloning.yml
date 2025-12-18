@@ -1,0 +1,33 @@
+name: zapusk
+
+on: push
+jobs:
+  cloning:
+    runs-on: ubuntu-latest
+    steps: 
+
+        - uses: GuillaumeFalourd/clone-github-repo-action@v2.3
+          with:
+            branch: 'main'
+            owner: 'ShukaOriginal'
+            repository: 'hexlet-ci-app-2'
+
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+
+        - uses: actions/setup-node@v6
+          with:
+            node-version: 24
+        - run: make setup
+        - run: make install
+        - run: make test
+  helloFromHexlet:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+          id: checkout
+          uses: actions/checkout@v4
+
+        - name: Print Hello from Hexlet
+          uses: hexlet-components/hello-from-hexlet-action@release
